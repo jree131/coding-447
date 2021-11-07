@@ -1,10 +1,10 @@
 package main
 
 import (
-	"git.imooc.com/coding-447/cart/domain/repository"
-	service2 "git.imooc.com/coding-447/cart/domain/service"
-	"git.imooc.com/coding-447/cart/handler"
-	cart "git.imooc.com/coding-447/cart/proto"
+	"github.com/jree131/coding-447/cart/domain/repository"
+	service2 "github.com/jree131/coding-447/cart/domain/service"
+	"github.com/jree131/coding-447/cart/handler"
+	cart "github.com/jree131/coding-447/cart/proto"
 	"github.com/asim/go-micro/plugins/registry/consul/v4"
 	ratelimit "github.com/asim/go-micro/plugins/wrapper/ratelimiter/uber/v4"
 	opentracing2 "github.com/asim/go-micro/plugins/wrapper/trace/opentracing/v4"

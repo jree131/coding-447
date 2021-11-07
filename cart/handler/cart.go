@@ -2,9 +2,9 @@ package handler
 
 import (
 	"context"
-	"git.imooc.com/coding-447/cart/domain/model"
-	"git.imooc.com/coding-447/cart/domain/service"
-	cart "git.imooc.com/coding-447/cart/proto"
+	"github.com/jree131/coding-447/cart/domain/model"
+	"github.com/jree131/coding-447/cart/domain/service"
+	cart "github.com/jree131/coding-447/cart/proto"
 	"github.com/jree131/common"
 )
 

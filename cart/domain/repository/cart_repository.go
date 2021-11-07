@@ -2,8 +2,8 @@ package repository
 
 import (
 	"errors"
-	"git.imooc.com/coding-447/cart/domain/model"
 	"github.com/jinzhu/gorm"
+	"github.com/jree131/coding-447/cart/domain/model"
 )
 
 type ICartRepository interface {

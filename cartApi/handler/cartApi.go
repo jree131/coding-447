@@ -1,7 +1,6 @@
 package handler
 
-import cart "git.imooc.com/coding-447/cart/proto"
-
+import cart "github.com/jree131/coding-447/cart/proto"
 type CartApi struct{
   CartService cart.CartService
 }
