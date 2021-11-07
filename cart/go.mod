@@ -1,4 +1,4 @@
-module git.imooc.com/coding-447/cart
+module github.com/jree131/coding-447/cart
 
 go 1.15
 
