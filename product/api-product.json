@@ -1,0 +1,586 @@
+{
+  "components": {
+    "requestBodies": {
+      "ProductAddProductRequest": {
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/ProductInfo"
+            }
+          }
+        },
+        "description": "ProductAddProductRequest"
+      },
+      "ProductDeleteProductByIDRequest": {
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/RequestID"
+            }
+          }
+        },
+        "description": "ProductDeleteProductByIDRequest"
+      },
+      "ProductFindAllProductRequest": {
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/RerquestAll"
+            }
+          }
+        },
+        "description": "ProductFindAllProductRequest"
+      },
+      "ProductFindProductByIDRequest": {
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/RequestID"
+            }
+          }
+        },
+        "description": "ProductFindProductByIDRequest"
+      },
+      "ProductUpdateProductRequest": {
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/ProductInfo"
+            }
+          }
+        },
+        "description": "ProductUpdateProductRequest"
+      }
+    },
+    "responses": {
+      "MicroAPIError": {
+        "content": {
+          "application/json": {
+            "schema": {
+              "properties": {
+                "Code": {
+                  "description": "Error code",
+                  "example": 500,
+                  "type": "number"
+                },
+                "Detail": {
+                  "description": "Error detail",
+                  "example": "service not found",
+                  "type": "string"
+                },
+                "Id": {
+                  "description": "Error ID",
+                  "type": "string"
+                },
+                "Status": {
+                  "description": "Error status message",
+                  "example": "Internal Server Error",
+                  "type": "string"
+                }
+              },
+              "title": "MicroAPIError",
+              "type": "object"
+            }
+          }
+        },
+        "description": "Error from the Micro API"
+      },
+      "ProductAddProductResponse": {
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/ResponseProduct"
+            }
+          }
+        },
+        "description": "ProductAddProductResponse"
+      },
+      "ProductDeleteProductByIDResponse": {
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/Response"
+            }
+          }
+        },
+        "description": "ProductDeleteProductByIDResponse"
+      },
+      "ProductFindAllProductResponse": {
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/AllProduct"
+            }
+          }
+        },
+        "description": "ProductFindAllProductResponse"
+      },
+      "ProductFindProductByIDResponse": {
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/ProductInfo"
+            }
+          }
+        },
+        "description": "ProductFindProductByIDResponse"
+      },
+      "ProductUpdateProductResponse": {
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/Response"
+            }
+          }
+        },
+        "description": "ProductUpdateProductResponse"
+      }
+    },
+    "schemas": {
+      "AllProduct": {
+        "properties": {
+          "productInfo": {
+            "properties": {
+              "id": {
+                "format": "int64",
+                "type": "number"
+              },
+              "productCategory": {
+                "format": "int64",
+                "type": "number"
+              },
+              "productDescriptions": {
+                "type": "string"
+              },
+              "productImage": {
+                "properties": {
+                  "id": {
+                    "format": "int64",
+                    "type": "number"
+                  },
+                  "imageName": {
+                    "type": "string"
+                  },
+                  "imagesCode": {
+                    "type": "string"
+                  },
+                  "imagesUrl": {
+                    "type": "string"
+                  }
+                },
+                "type": "object"
+              },
+              "productName": {
+                "type": "string"
+              },
+              "productPrice": {
+                "format": "double",
+                "type": "number"
+              },
+              "productSeo": {
+                "properties": {
+                  "id": {
+                    "format": "int64",
+                    "type": "number"
+                  },
+                  "seoCode": {
+                    "type": "string"
+                  },
+                  "seoDescription": {
+                    "type": "string"
+                  },
+                  "seoKeywords": {
+                    "type": "string"
+                  },
+                  "seoTitle": {
+                    "type": "string"
+                  }
+                },
+                "type": "object"
+              },
+              "productSize": {
+                "properties": {
+                  "id": {
+                    "format": "int64",
+                    "type": "number"
+                  },
+                  "sizeCode": {
+                    "type": "string"
+                  },
+                  "sizeName": {
+                    "type": "string"
+                  }
+                },
+                "type": "object"
+              },
+              "productSku": {
+                "type": "string"
+              }
+            },
+            "type": "object"
+          }
+        },
+        "title": "AllProduct",
+        "type": "object"
+      },
+      "PriductImage": {
+        "properties": {
+          "id": {
+            "format": "int64",
+            "type": "number"
+          },
+          "imageName": {
+            "type": "string"
+          },
+          "imagesCode": {
+            "type": "string"
+          },
+          "imagesUrl": {
+            "type": "string"
+          }
+        },
+        "title": "PriductImage",
+        "type": "object"
+      },
+      "ProductInfo": {
+        "properties": {
+          "id": {
+            "format": "int64",
+            "type": "number"
+          },
+          "productCategory": {
+            "format": "int64",
+            "type": "number"
+          },
+          "productDescriptions": {
+            "type": "string"
+          },
+          "productImage": {
+            "properties": {
+              "id": {
+                "format": "int64",
+                "type": "number"
+              },
+              "imageName": {
+                "type": "string"
+              },
+              "imagesCode": {
+                "type": "string"
+              },
+              "imagesUrl": {
+                "type": "string"
+              }
+            },
+            "type": "object"
+          },
+          "productName": {
+            "type": "string"
+          },
+          "productPrice": {
+            "format": "double",
+            "type": "number"
+          },
+          "productSeo": {
+            "properties": {
+              "id": {
+                "format": "int64",
+                "type": "number"
+              },
+              "seoCode": {
+                "type": "string"
+              },
+              "seoDescription": {
+                "type": "string"
+              },
+              "seoKeywords": {
+                "type": "string"
+              },
+              "seoTitle": {
+                "type": "string"
+              }
+            },
+            "type": "object"
+          },
+          "productSize": {
+            "properties": {
+              "id": {
+                "format": "int64",
+                "type": "number"
+              },
+              "sizeCode": {
+                "type": "string"
+              },
+              "sizeName": {
+                "type": "string"
+              }
+            },
+            "type": "object"
+          },
+          "productSku": {
+            "type": "string"
+          }
+        },
+        "title": "ProductInfo",
+        "type": "object"
+      },
+      "ProductSeo": {
+        "properties": {
+          "id": {
+            "format": "int64",
+            "type": "number"
+          },
+          "seoCode": {
+            "type": "string"
+          },
+          "seoDescription": {
+            "type": "string"
+          },
+          "seoKeywords": {
+            "type": "string"
+          },
+          "seoTitle": {
+            "type": "string"
+          }
+        },
+        "title": "ProductSeo",
+        "type": "object"
+      },
+      "PrtoduceSize": {
+        "properties": {
+          "id": {
+            "format": "int64",
+            "type": "number"
+          },
+          "sizeCode": {
+            "type": "string"
+          },
+          "sizeName": {
+            "type": "string"
+          }
+        },
+        "title": "PrtoduceSize",
+        "type": "object"
+      },
+      "RequestID": {
+        "properties": {
+          "productId": {
+            "format": "int64",
+            "type": "number"
+          }
+        },
+        "title": "RequestID",
+        "type": "object"
+      },
+      "RerquestAll": {
+        "title": "RerquestAll",
+        "type": "object"
+      },
+      "Response": {
+        "properties": {
+          "msg": {
+            "type": "string"
+          }
+        },
+        "title": "Response",
+        "type": "object"
+      },
+      "ResponseProduct": {
+        "properties": {
+          "productId": {
+            "format": "int64",
+            "type": "number"
+          }
+        },
+        "title": "ResponseProduct",
+        "type": "object"
+      }
+    },
+    "securitySchemes": {
+      "MicroAPIToken": {
+        "bearerFormat": "JWT",
+        "description": "Micro API token",
+        "scheme": "bearer",
+        "type": "http"
+      }
+    }
+  },
+  "info": {
+    "description": "Generated by protoc-gen-openapi",
+    "title": "Product",
+    "version": "1",
+    "x-logo": {
+      "altText": "Micro logo",
+      "backgroundColor": "#FFFFFF",
+      "url": "https://micro.mu/images/brand.png"
+    }
+  },
+  "openapi": "3.0.0",
+  "paths": {
+    "/product/Product/AddProduct": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "Micro-Namespace",
+          "required": true,
+          "schema": {
+            "default": "micro",
+            "type": "string"
+          }
+        }
+      ],
+      "post": {
+        "requestBody": {
+          "$ref": "#/components/requestBodies/ProductAddProductRequest"
+        },
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/ProductAddProductResponse"
+          },
+          "default": {
+            "$ref": "#/components/responses/MicroAPIError"
+          }
+        },
+        "security": [
+          {
+            "MicroAPIToken": []
+          }
+        ],
+        "summary": "Product.AddProduct(ProductInfo)"
+      }
+    },
+    "/product/Product/DeleteProductByID": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "Micro-Namespace",
+          "required": true,
+          "schema": {
+            "default": "micro",
+            "type": "string"
+          }
+        }
+      ],
+      "post": {
+        "requestBody": {
+          "$ref": "#/components/requestBodies/ProductDeleteProductByIDRequest"
+        },
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/ProductDeleteProductByIDResponse"
+          },
+          "default": {
+            "$ref": "#/components/responses/MicroAPIError"
+          }
+        },
+        "security": [
+          {
+            "MicroAPIToken": []
+          }
+        ],
+        "summary": "Product.DeleteProductByID(RequestID)"
+      }
+    },
+    "/product/Product/FindAllProduct": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "Micro-Namespace",
+          "required": true,
+          "schema": {
+            "default": "micro",
+            "type": "string"
+          }
+        }
+      ],
+      "post": {
+        "requestBody": {
+          "$ref": "#/components/requestBodies/ProductFindAllProductRequest"
+        },
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/ProductFindAllProductResponse"
+          },
+          "default": {
+            "$ref": "#/components/responses/MicroAPIError"
+          }
+        },
+        "security": [
+          {
+            "MicroAPIToken": []
+          }
+        ],
+        "summary": "Product.FindAllProduct(RerquestAll)"
+      }
+    },
+    "/product/Product/FindProductByID": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "Micro-Namespace",
+          "required": true,
+          "schema": {
+            "default": "micro",
+            "type": "string"
+          }
+        }
+      ],
+      "post": {
+        "requestBody": {
+          "$ref": "#/components/requestBodies/ProductFindProductByIDRequest"
+        },
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/ProductFindProductByIDResponse"
+          },
+          "default": {
+            "$ref": "#/components/responses/MicroAPIError"
+          }
+        },
+        "security": [
+          {
+            "MicroAPIToken": []
+          }
+        ],
+        "summary": "Product.FindProductByID(RequestID)"
+      }
+    },
+    "/product/Product/UpdateProduct": {
+      "parameters": [
+        {
+          "in": "header",
+          "name": "Micro-Namespace",
+          "required": true,
+          "schema": {
+            "default": "micro",
+            "type": "string"
+          }
+        }
+      ],
+      "post": {
+        "requestBody": {
+          "$ref": "#/components/requestBodies/ProductUpdateProductRequest"
+        },
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/ProductUpdateProductResponse"
+          },
+          "default": {
+            "$ref": "#/components/responses/MicroAPIError"
+          }
+        },
+        "security": [
+          {
+            "MicroAPIToken": []
+          }
+        ],
+        "summary": "Product.UpdateProduct(ProductInfo)"
+      }
+    }
+  },
+  "servers": [
+    {
+      "url": "https://api.m3o.com/v1",
+      "description": "Micro M3O environment"
+    }
+  ]
+}

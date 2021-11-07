@@ -1,0 +1,79 @@
+syntax = "proto3";
+
+package product;
+
+option go_package = "./proto;product";
+
+service  Product{
+  // 添加商品
+  rpc  AddProduct(ProductInfo) returns (ResponseProduct){}
+  // 根据id查询商品
+  rpc FindProductByID(RequestID) returns (ProductInfo){}
+  //更新商品
+  rpc UpdateProduct (ProductInfo)  returns (Response){}
+  // 删除商品
+  rpc DeleteProductByID(RequestID) returns (Response){}
+  // 查询所有商品
+  rpc  FindAllProduct(RequestAll) returns (AllProduct){}
+
+}
+
+message ProductInfo{
+
+  int64   id = 1;
+  string  product_name = 2;
+  string product_sku = 3;
+  double  product_price = 4;
+  string product_descriptions = 5;
+  int64 product_category = 6;
+  repeated  PriductImage  product_image = 7;
+  repeated  PrtoduceSize  product_size = 8;
+  ProductSeo  product_seo = 9;
+
+}
+
+message PriductImage {
+  int64 id  =1;
+  string image_name =2;
+  string  images_code  =3;
+  string images_url = 4;
+}
+
+message PrtoduceSize {
+  int64 id =1;
+  string size_name =2;
+  string  size_code =3;
+
+}
+message ProductSeo{
+  int64  id =1;
+  string seo_title =2;
+  string  seo_keywords =3;
+  string seo_description =4;
+  string  seo_code  =6;
+}
+
+message ResponseProduct{
+  int64 product_id =1;
+}
+
+message RequestID{
+  int64 product_id =1;
+}
+
+message Response{
+  string msg =1;
+}
+
+message RequestAll{
+
+}
+
+message AllProduct{
+  repeated ProductInfo product_info =1;
+}
+
+
+
+
+
