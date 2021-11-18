@@ -1,0 +1,1 @@
+docker docker exec -it 4387d9c00a49  ./micro --registry_address=192.168.0.107 api --handler=api

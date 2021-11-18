@@ -1,4 +1,4 @@
-module cartApi
+module github.com/jree131/coding-447/cartApi
 
 go 1.15
 

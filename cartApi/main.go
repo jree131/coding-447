@@ -3,7 +3,6 @@ package main
 import (
 	"cartApi/handler"
 	cartApi "cartApi/proto"
-	"context"
 	"github.com/afex/hystrix-go/hystrix"
 	"github.com/asim/go-micro/plugins/registry/consul/v4"
 	"github.com/asim/go-micro/plugins/wrapper/select/roundrobin/v4"
@@ -63,12 +62,6 @@ func main() {
 
 	service.Init()
 	cartService := cart.NewCartService("go.micro.service.cart", service.Client())
-	cartService.AddCart(context.TODO(), &cart.CartInfo{
-		UserId:    3,
-		ProductId: 4,
-		Size:      5,
-		Num:       5,
-	})
 	// Register Handler
 	if err := cartApi.RegisterCartApiHandler(service.Server(), &handler.CartApi{CartService: cartService}); err != nil {
 		log.Error(err)

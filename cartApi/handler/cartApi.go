@@ -20,6 +20,7 @@ type CartApi struct {
 
 func (e *CartApi) FindAll(ctx context.Context, req *cartApi.Request, rep *cartApi.Response) error {
 	log.Info("接受到 /cartApi/findAll 访问请求")
+	//req.Get get请求
 	if _, ok := req.Get["user_id"]; !ok {
 		//rsp.StatusCode= 500
 		return errors.New("参数异常")
