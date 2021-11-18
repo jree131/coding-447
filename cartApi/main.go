@@ -1,13 +1,13 @@
 package main
 
 import (
-	"cartApi/handler"
-	cartApi "cartApi/proto"
 	"github.com/afex/hystrix-go/hystrix"
 	"github.com/asim/go-micro/plugins/registry/consul/v4"
 	"github.com/asim/go-micro/plugins/wrapper/select/roundrobin/v4"
 	opentracing2 "github.com/asim/go-micro/plugins/wrapper/trace/opentracing/v4"
 	cart "github.com/jree131/coding-447/cart/proto"
+	"github.com/jree131/coding-447/cartApi/handler"
+	cartApi "github.com/jree131/coding-447/cartApi/proto"
 	"github.com/jree131/common"
 	"github.com/opentracing/opentracing-go"
 	"go-micro.dev/v4"

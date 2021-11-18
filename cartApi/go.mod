@@ -12,7 +12,6 @@ require (
 	github.com/jree131/common v0.0.0-20211106084846-332daf6055a3
 	github.com/opentracing/opentracing-go v1.2.0
 	go-micro.dev/v4 v4.2.1
-	google.golang.org/grpc v1.27.1
 	google.golang.org/protobuf v1.26.0
 )
 

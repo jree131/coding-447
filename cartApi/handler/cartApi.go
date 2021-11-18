@@ -1,12 +1,12 @@
 package handler
 
 import (
-	cartApi "cartApi/proto"
 	"context"
 	"encoding/json"
 	"errors"
 	"fmt"
 	cart "github.com/jree131/coding-447/cart/proto"
+	cartApi "github.com/jree131/coding-447/cartApi/proto"
 	"go-micro.dev/v4/util/log"
 	"strconv"
 )
